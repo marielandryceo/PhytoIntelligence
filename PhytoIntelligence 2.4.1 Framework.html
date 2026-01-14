@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhytoIntelligence 2.4.1 Compendium</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --accent: #2c3e50;
+            --warning: #856404;
+            --warning-bg: #fff3cd;
+            --mono: "Courier New", Courier, monospace;
+            --sans: "Helvetica Neue", Arial, sans-serif;
+            --serif: "Georgia", serif;
+        }
+
+        body {
+            font-family: var(--serif);
+            line-height: 1.6;
+            color: var(--primary);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #fcfcfc;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--sans);
+            font-weight: 700;
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        h1 { font-size: 2.5em; border-bottom: 3px solid var(--primary); }
+        h2 { font-size: 1.8em; color: var(--accent); }
+        h3 { font-size: 1.3em; margin-top: 1.5em; }
+
+        .metadata {
+            font-family: var(--mono);
+            font-size: 0.85em;
+            color: #666;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 40px;
+            background: #fff;
+        }
+
+        .abstract-box {
+            background: #f4f4f4;
+            padding: 20px;
+            border-left: 5px solid var(--primary);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .ethics-box {
+            background: #eef2f5;
+            padding: 20px;
+            border-left: 5px solid #2980b9;
+            margin-bottom: 20px;
+        }
+
+        .disclaimer-box {
+            background: #fff3cd;
+            color: #856404;
+            padding: 20px;
+            border: 1px solid #ffeeba;
+            border-left: 5px solid #ffc107;
+            margin-bottom: 40px;
+            font-family: var(--sans);
+            font-weight: 600;
+        }
+
+        .module-container {
+            border: 1px solid #ddd;
+            padding: 25px;
+            margin: 40px 0;
+            border-radius: 4px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .module-header {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            margin: -25px -25px 20px -25px;
+            border-radius: 4px 4px 0 0;
+            font-family: var(--sans);
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .gate-check {
+            font-family: var(--mono);
+            background: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #f5c6cb;
+            font-size: 0.9em;
+        }
+
+        .artifact-box {
+            font-family: var(--mono);
+            background: #e2e3e5;
+            color: #383d41;
+            padding: 15px;
+            margin-top: 20px;
+            border: 1px solid #d6d8db;
+        }
+
+        ul { margin-bottom: 15px; }
+        li { margin-bottom: 5px; }
+        
+        code {
+            background: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: var(--mono);
+        }
+
+        .diagram-container {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        @media print {
+            body { max-width: 100%; padding: 0; }
+            .module-container { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="metadata">
+        <strong>DOCUMENT ID:</strong> PI-2.4.1-SPEC<br>
+        <strong>VERSION:</strong> 2.4.1 (Stable/Locked)<br>
+        <strong>DATE:</strong> January 2026<br>
+        <strong>AUTHOR:</strong> Marie-Soleil Seshat Landry<br>
+        <strong>STATUS:</strong> PUBLICATION READY
+    </div>
+
+    <h1>The PhytoIntelligence 2.4.1 Compendium</h1>
+    <p><em>A mechanism-first, plant-exclusive research framework for hypothesis generation in complex biological conditions.</em></p>
+
+    <!-- SECTION: ABSTRACT -->
+    <div class="abstract-box">
+        <h3>Abstract</h3>
+        <p>The PhytoIntelligence 2.4.1 Compendium presents a mechanism-first, plant-exclusive research framework for hypothesis generation in complex biological conditions. The system addresses a persistent failure in nutraceutical, botanical, and AI-assisted health research: the direct translation of disease labels into ingredient combinations without formal mechanistic decomposition, evidence stratification, or interaction modeling.</p>
+        <p>PhytoIntelligence 2.4.1 introduces a gated, multi-module architecture that transforms colloquial disease descriptors into bounded molecular mechanism vectors, evaluates those mechanisms through structured evidence density scoring, maps them to naturally occurring plant-derived phytochemical classes, and rigorously models interaction, antagonism, and context dependence prior to hypothesis assembly. The framework explicitly forbids diagnostic, therapeutic, dosing, or formulation outputs, terminating instead at a human-reviewable Hypothesis Packet designed for experimental planning and scientific scrutiny.</p>
+    </div>
+
+    <!-- SECTION: ETHICS -->
+    <div class="ethics-box">
+        <h3>Ethics Statement (Mandatory)</h3>
+        <p>PhytoIntelligence 2.4.1 is designed exclusively for research hypothesis generation and scientific exploration. It does not diagnose, treat, cure, mitigate, prevent, or advise on any disease or health condition. All outputs are population-level, literature-derived abstractions intended to support experimental design and academic inquiry.</p>
+        <p>The system enforces transparency by requiring explicit declaration of uncertainty, non-coverage, and evidence limitations at every stage. Unmodeled ignorance is a greater risk than acknowledged uncertainty.</p>
+    </div>
+
+    <!-- SECTION: DISCLAIMER -->
+    <div class="disclaimer-box">
+        <h3>REGULATORY & MEDICAL DISCLAIMER</h3>
+        <p>PhytoIntelligence 2.4.1 and any software derived from it are NOT medical devices, diagnostic tools, or therapeutic systems. No output constitutes medical advice, nutritional advice, or treatment recommendations. Downstream application of hypotheses must comply with all applicable laws governing biomedical research.</p>
+    </div>
+
+    <div class="diagram-container">
+        <h3>System Architecture Overview</h3>
+        <div class="mermaid">
+            flowchart TD
+                subgraph "INPUT"
+                    DL[Disease Label]
+                end
+
+                subgraph "THE AI CORE (Modules 0-5)"
+                    M0[Module 0: Translation Gate] -->|Mechanism Atlas| M1
+                    M1[Module 1: Vector Construction] -->|Mech Vector| M2
+                    M2[Module 2: Evidence Scoring] -->|EQ-MV| M3
+                    M3[Module 3: Class Mapping] -->|Class Matrix| M4
+                    M4[Module 4: Interaction Model] -->|Interaction Graph| M5
+                    M5[Module 5: Packet Assembly]
+                end
+
+                subgraph "OUTPUT"
+                    HP[Hypothesis Packet]
+                end
+
+                subgraph "FORBIDDEN ZONES"
+                    Pills[Formulation]
+                    Dose[Dosing]
+                    Cure[Medical Claims]
+                end
+
+                DL --> M0
+                M5 --> HP
+                M5 -.->|BLOCKED| Pills
+                M5 -.->|BLOCKED| Dose
+                M5 -.->|BLOCKED| Cure
+                
+                style DL fill:#333,color:#fff
+                style HP fill:#2c3e50,color:#fff
+                style M0 fill:#fff,stroke:#333
+                style M5 fill:#fff,stroke:#333
+                style FORBIDDEN ZONES fill:#f8d7da,stroke:#721c24,stroke-dasharray: 5 5
+        </div>
+    </div>
+
+    <!-- MODULE 0 -->
+    <div class="module-container">
+        <div class="module-header">
+            <span>MODULE 0</span>
+            <span>Diagnostic → Mechanistic Translation</span>
+        </div>
+        <p><strong>Role:</strong> Ensures no research activity begins until the biological problem space has been decomposed into bounded, falsifiable molecular mechanisms.</p>
+        
+        <h4>0.5 Mechanism Atlas Structure</h4>
+        <ul>
+            <li><strong>Genetic/Driver:</strong> Oncogenic drivers, genomic instability.</li>
+            <li><strong>Network Signaling:</strong> MAPK, PI3K-AKT, NF-κB loops.</li>
+            <li><strong>Metabolic/Redox:</strong> Glycolytic flux, mitochondrial uncoupling.</li>
+            <li><strong>Microenvironment:</strong> Hypoxia, immune exclusion.</li>
+            <li><strong>Epigenetic:</strong> Histone modification, miRNA disruption.</li>
+        </ul>
+
+        <div class="gate-check">
+            ⚠ <strong>HARD STOP:</strong> If user fails to narrow scope or assumes omniscience, the system HALTS.
+        </div>
+    </div>
+
+    <!-- MODULE 1 -->
+    <div class="module-container">
+        <div class="module-header">
+            <span>MODULE 1</span>
+            <span>Mechanism Vector Construction</span>
+        </div>
+        <p><strong>Role:</strong> Transforms qualitative selections into formal Mechanism Vectors (MV) for computation. No molecules allowed yet.</p>
+
+        <h4>1.4 Mechanism Unit Definition</h4>
+        <p>Every mechanism must contain:</p>
+        <ul>
+            <li>Identifier (Standardized Label)</li>
+            <li>Biological Layer Classification</li>
+            <li>Molecular Boundary Conditions (Direction/Context)</li>
+            <li>Failure Mode Description</li>
+            <li>Literature Anchor (PMID Reference)</li>
+        </ul>
+
+        <div class="artifact-box">
+            OUTPUT: Mechanism Vector (MV) + Non-Coverage Vector (NCV)
+        </div>
+    </div>
+
+    <!-- MODULE 2 -->
+    <div class="module-container">
+        <div class="module-header">
+            <span>MODULE 2</span>
+            <span>Evidence Stratification (EDS)</span>
+        </div>
+        <p><strong>Role:</strong> Applies evidence pressure. Mechanisms without sufficient density or quality are discarded.</p>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+                graph LR
+                    A[Mechanism Unit] --> B{Evidence Check}
+                    B -->|Tier 1: Human| C[High Confidence]
+                    B -->|Tier 2: Mammal| D[Moderate]
+                    B -->|Tier 3: In Vitro| E[Context Only]
+                    B -->|Tier 4: Theory| F[Discard/Flag]
+                    C --> G[EDS Score Calculation]
+                    D --> G
+                    E --> G
+            </div>
+        </div>
+
+        <h4>2.5 EDS Formula Concept</h4>
+        <p><code>EDS(m) = Weight × Σ(Tier Scores) / σ(Conflict)</code></p>
+        <p>Contradiction reduces score more than volume increases it.</p>
+    </div>
+
+    <!-- MODULE 3 -->
+    <div class="module-container">
+        <div class="module-header">
+            <span>MODULE 3</span>
+            <span>Phytochemical Class Mapping</span>
+        </div>
+        <p><strong>Role:</strong> Maps mechanisms to plant-derived phytochemical <em>classes</em>. No specific products or brands.</p>
+
+        <h4>3.5 Eligibility Criteria</h4>
+        <ul>
+            <li>Must be naturally occurring in plants.</li>
+            <li>Must be compatible with vegan/organic frameworks.</li>
+            <li>Must not require synthetic modification.</li>
+        </ul>
+
+        <div class="gate-check">
+            ⚠ <strong>REDOX SAFEGUARD:</strong> Classes that broadly amplify oxidative stress without context are flagged as high-risk.
+        </div>
+    </div>
+
+    <!-- MODULE 4 -->
+    <div class="module-container">
+        <div class="module-header">
+            <span>MODULE 4</span>
+            <span>Interaction & Antagonism Modeling</span>
+        </div>
+        <p><strong>Role:</strong> Evaluates Synergy, Additivity, and Antagonism. Prevents combinatorial optimism.</p>
+
+        <h4>4.3 Interaction Taxonomy</h4>
+        <ul>
+            <li><strong>Synergistic:</strong> Effect > Sum of parts (requires evidence).</li>
+            <li><strong>Additive:</strong> Linear summation.</li>
+            <li><strong>Antagonistic:</strong> Effect reduction or negation.</li>
+            <li><strong>Context-Dependent:</strong> Changes based on tissue/redox state.</li>
+        </ul>
+
+        <div class="gate-check">
+            ⚠ <strong>PRUNING RULE:</strong> Any class that antagonizes more mechanisms than it supports is removed.
+        </div>
+    </div>
+
+    <!-- MODULE 5 -->
+    <div class="module-container">
+        <div class="module-header">
+            <span>MODULE 5</span>
+            <span>Hypothesis Packet Assembly</span>
+        </div>
+        <p><strong>Role:</strong> The final output. Assembles surviving logic into a research object. The AI authority ends here.</p>
+
+        <h4>5.4 Packet Components</h4>
+        <ol>
+            <li>Scope Declaration</li>
+            <li>Mechanism Summary Table (with EDS scores)</li>
+            <li>Phytochemical Class Set (Unranked)</li>
+            <li>Interaction Constraints</li>
+            <li><strong>Explicit Non-Coverage Statement</strong></li>
+            <li>Null & Alternative Hypotheses</li>
+        </ol>
+
+        <div class="artifact-box">
+            FINAL OUTPUT: Hypothesis Packet (Research-Ready).<br>
+            NO DOSING. NO CURES. NO PRODUCTS.
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+    </script>
+</body>
+</html>
